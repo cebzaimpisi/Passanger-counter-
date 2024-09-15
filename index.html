@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passanger counter app</title>
+    <style>
+        body{
+            /*font-family: Arial, Helvetica, sans-serif;*/
+            background-color: antiquewhite;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            align-items: center;
+            font-family: impact;
+
+        }
+        .container{
+            background-color: rgb(95, 114, 114);
+            border: 2px solid black;
+            border-radius: 5px;
+            max-width: 300px;
+            max-height: 400px;
+            margin: 50px auto;
+            padding: 10px;
+
+        }
+        h2{
+            background: linear-gradient(270deg,violet,indigo,blue,green,yellow,orange,red);
+            background-clip: text;
+            display: inline;
+            color: transparent;
+            animation: animated 5s ease infinite;
+            background-size: 1400% 1400%;
+        }
+        @keyframes animated{
+            0%{background-position: 0% 50%;}
+            50%{background-position: 100% 50%;}
+            100%{background-position: 0% 50%;}
+        }
+        .increment{
+            background-color: blue;
+            font-size: 16px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .increment:hover{
+            background-color: rgb(78, 78, 109);
+
+        }
+        #Reset{
+            background-color: rgb(173, 13, 13);
+            font-size: 16px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #Reset:hover{
+            background-color: rgb(151, 107, 107);
+        }
+        .save{
+            background-color: rgb(166, 255, 0);
+            font-size: 16px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .save:hover{
+            background-color: rgb(131, 184, 79);
+            margin: 10px;
+            padding: 5px;
+            
+        }
+        #count{
+            font-size: 30px;
+            font-weight: bold;
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <h2>People Entered:</h2>
+      <div id="count">0</div>
+      <button class="increment" id="increment" onclick="count()">Increment</button>
+      <br>
+      <button id="Reset">Reset</button>
+      <br>
+      <button class="save" id="save" onclick="save()">Save</button>
+    <h4 id="preview">Previous entires:</h4>
+
+    </div>
+    <script>
+    let count_1 = 0;
+
+    function count(){
+        let count = document.getElementById('count');
+        count_1 +=1;
+        console.log(count_1);
+        count.innerText = count_1;
+        
+    }
+    function save(){
+    let Preview = document.getElementById('preview');
+      Preview.innerText = `Previous entires:${count_1} -`;
+    }
+    document.getElementById('Reset').addEventListener('click', function(){
+        let count = document.getElementById('count');
+        count_1 = 0;
+        count.innerText = 0;
+    })
+        
+    </script>
+</body>
+</html>
